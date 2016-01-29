@@ -1,7 +1,7 @@
 # Ubuntu nginx image description
 #   docker build -t elarasu/weave-nginx .
 #
-FROM nginx:1.9
+FROM nginx:1.9.10
 MAINTAINER elarasu@outlook.com
 
 RUN rm /etc/nginx/nginx.conf /etc/nginx/mime.types

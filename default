@@ -5,9 +5,15 @@ server {
   # Make site accessible from http://localhost/
   server_name localhost;
 
-  # Add 1 day expires header for static assets
-  location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+  location = /favicon.ico { access_log off; log_not_found off; }
+  location = /robots.txt  { access_log off; log_not_found off; }
+
+  # static assets - Media: images, icons, video, audio, HTC
+  location ~* \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm|htc|woff|css|js)$ {
     expires 1d;
+    access_log off;
+    log_not_found off;
+    add_header Cache-Control "public";
   }
 
   location / {
